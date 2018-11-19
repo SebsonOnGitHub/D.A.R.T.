@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SendDartHitTask sendDartHitTask = new SendDartHitTask();
-        sendDartHitTask.doInBackground();
+        sendDartHitTask.execute("Fisk");
     }
     public static Context getContext(){
         return MainActivity.context;
