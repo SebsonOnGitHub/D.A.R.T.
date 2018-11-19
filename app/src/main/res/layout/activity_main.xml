@@ -2,41 +2,140 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:screenOrientation="sensorLandscape"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/player_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:background="@null"
+        android:text="@string/player1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/player_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="735dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:background="@null"
+        android:text="@string/player2"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="94dp"
-        android:layout_height="30dp"
-        android:fontFamily="serif-monospace"
-        android:text="Menu"
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/menu"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/player_2"
+        app:layout_constraintStart_toEndOf="@+id/player_1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/points_1_1"
+        android:layout_width="@dimen/width_points"
+        android:layout_height="@dimen/height_points"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/border_dashed"
+        android:text="@string/points_1_1"
         android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/editText2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editText"
-        tools:layout_editor_absoluteY="0dp" />
+        android:textSize="@dimen/size_points"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player_1" />
+
+    <TextView
+        android:id="@+id/remaining_1_1"
+        android:layout_width="@dimen/width_remaining"
+        android:layout_height="@dimen/height_remaining"
+        android:background="@drawable/border_dashed"
+        android:text="@string/remaining_1_1"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_remaining"
+        app:layout_constraintStart_toEndOf="@+id/points_1_1"
+        app:layout_constraintTop_toTopOf="@+id/points_1_1" />
+
+    <TextView
+        android:id="@+id/points_1_2"
+        android:layout_width="@dimen/width_points"
+        android:layout_height="@dimen/height_points"
+        android:background="@drawable/border_whole"
+        android:text="@string/points_1_2"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_points"
+        app:layout_constraintStart_toStartOf="@+id/points_1_1"
+        app:layout_constraintTop_toBottomOf="@+id/points_1_1" />
+
+    <TextView
+        android:id="@+id/remaining_1_2"
+        android:layout_width="@dimen/width_remaining"
+        android:layout_height="@dimen/height_remaining"
+        android:background="@drawable/border_whole"
+        android:text="@string/remaining_1_2"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_remaining"
+        app:layout_constraintStart_toEndOf="@+id/points_1_2"
+        app:layout_constraintTop_toBottomOf="@+id/remaining_1_1" />
+
+    <TextView
+        android:id="@+id/points_2_1"
+        android:layout_width="@dimen/width_points"
+        android:layout_height="@dimen/height_points"
+        android:background="@drawable/border_dashed"
+        android:text="@string/points_2_1"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_points"
+        app:layout_constraintEnd_toStartOf="@+id/remaining_2_1"
+        app:layout_constraintTop_toTopOf="@+id/remaining_2_1" />
+
+    <TextView
+        android:id="@+id/remaining_2_1"
+        android:layout_width="@dimen/width_remaining"
+        android:layout_height="@dimen/height_remaining"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="120dp"
+        android:background="@drawable/border_dashed"
+        android:text="@string/remaining_2_1"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_remaining"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player_2" />
+
+    <TextView
+        android:id="@+id/points_2_2"
+        android:layout_width="@dimen/width_points"
+        android:layout_height="@dimen/height_points"
+        android:background="@drawable/border_whole"
+        android:text="@string/points_2_2"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_points"
+        app:layout_constraintEnd_toStartOf="@+id/remaining_2_2"
+        app:layout_constraintTop_toBottomOf="@+id/points_2_1" />
+
+    <TextView
+        android:id="@+id/remaining_2_2"
+        android:layout_width="@dimen/width_remaining"
+        android:layout_height="@dimen/height_remaining"
+        android:background="@drawable/border_whole"
+        android:text="@string/remaining_2_2"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_remaining"
+        app:layout_constraintEnd_toEndOf="@+id/remaining_2_1"
+        app:layout_constraintTop_toBottomOf="@+id/remaining_2_1" />
+
 </android.support.constraint.ConstraintLayout>
