@@ -50,6 +50,7 @@ public class SendDartHitTask extends AsyncTask<String, Void, String> {
             public void onResponse(JSONObject resp) {
                 response = resp;
                 gotResponse = true;
+                listener.onTaskCompleted(resp.toString());
             }
         }, new Response.ErrorListener(){
             @Override
@@ -60,7 +61,7 @@ public class SendDartHitTask extends AsyncTask<String, Void, String> {
 
         };
         mRequestQueue.add(request);
-        mRequestQueue.start();
+       // mRequestQueue.start();
         if(gotResponse){
             return response.toString();
         }
@@ -70,9 +71,6 @@ public class SendDartHitTask extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-//        Toast toast = Toast.makeText(MainActivity.getContext(), "YAY A TOAST", Toast.LENGTH_LONG);
-//        toast.show();
-        listener.onTaskCompleted(s);
         super.onPostExecute(s);
     }
 }
