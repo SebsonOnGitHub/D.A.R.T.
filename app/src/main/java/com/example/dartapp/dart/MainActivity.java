@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.remaining_2_1)).setText(Integer.toString(data[5]));
         ((TextView)findViewById(R.id.points_2_2)).setText(Integer.toString(data[6]));
         ((TextView)findViewById(R.id.remaining_2_2)).setText(Integer.toString(data[7]));
-        if(data[9] == -1)
+        if(data[8] == -1)
             ((TextView)findViewById(R.id.points_curr_2)).setText("");
         else
             ((TextView)findViewById(R.id.points_curr_1)).setText(Integer.toString(data[8]));
