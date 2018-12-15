@@ -14,7 +14,7 @@ public class LoopTask extends AsyncTask<GameLogic, Void, Integer> {
     protected Integer doInBackground(GameLogic... strings) {
         Random rand = new Random();
         for(int i = 0; true; i++) {
-            int[] data = strings[0].update(i + 1, rand.nextInt(21), false);
+            int[] data = strings[0].update(i + 1, rand.nextInt(21));
             listener.loopCompleted(data);
             i = i%3;
             SystemClock.sleep(4000);

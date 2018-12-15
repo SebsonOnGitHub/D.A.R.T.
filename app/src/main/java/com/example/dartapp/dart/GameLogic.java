@@ -18,9 +18,9 @@ public class GameLogic {
         points_2_2 = 0;
         remaining_2_2 = 501;
 
-        points_curr[0] = 0;
-        points_curr[1] = 0;
-        points_curr[2] = 0;
+        points_curr[0] = -1;
+        points_curr[1] = -1;
+        points_curr[2] = -1;
 
         points_curr_tot = 0;
         remaining_curr = 0;
@@ -31,7 +31,7 @@ public class GameLogic {
         curr_player = 1;
     }
 
-    public int[] update(int dart, int value, boolean firstTurn){
+    public int[] update(int dart, int value){
         int correction = 0;
 
         points_curr[dart - 1] = value;
@@ -52,7 +52,7 @@ public class GameLogic {
 
         switch (curr_player) {
             case 1:
-                if(dart == 1 && !firstTurn){
+                if(dart == 1 && round_1 !=0){
                     points_1_1 = points_1_2;
                     remaining_1_1 = remaining_1_2;
                 }
@@ -65,7 +65,7 @@ public class GameLogic {
                     curr_player = 2;
                 break;
             case 2:
-                if(dart == 1 && !firstTurn){
+                if(dart == 1 && round_2 != 0){
                     points_2_1 = points_2_2;
                     remaining_2_1 = remaining_2_2;
                 }
@@ -80,6 +80,10 @@ public class GameLogic {
             default:
                 break;
         }
+
+        return getGameData();
+    }
+    public int[] getGameData(){
 
         int[] data = {points_1_1, remaining_1_1, points_1_2, remaining_1_2, points_2_1,
                 remaining_2_1, points_2_2, remaining_2_2, points_curr[0], points_curr[1],

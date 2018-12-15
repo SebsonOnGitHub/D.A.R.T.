@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -23,23 +24,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final GameLogic gameLogic = new GameLogic();
-
+        updateTextView(gameLogic.getGameData());
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
                 while(true) {
-                    Log.d("ANTON", "LOOPAR");
                     SendDartHitTask sendDartHitTask = new SendDartHitTask(new OnTaskCompleted() {
                         @Override
                         public void onTaskCompleted(String matchInfo) {
                             // The matchinfo from server will be available in matchInfo variable
-                            Toast toast = Toast.makeText(MainActivity.getContext(), matchInfo, Toast.LENGTH_SHORT);
-                            toast.show();
+                            try {
+                                JSONObject dartInfo = new JSONObject(matchInfo);
+                                String status = dartInfo.getString("answer");
+                                Log.d("ANTON", status);
+                                if(status.equals("accepted")) {
+                                    Log.d("ANTON", "Got a dart");
+                                    Log.d("ANTON", dartInfo.toString());
+                                    String val = dartInfo.getString("score");
+                                    String dartNum = dartInfo.getString("dart");
+                                    Log.d("ANTON", "value" + val);
+                                    Log.d("ANTON", "dartnum " + dartNum);
+                                    updateTextView(gameLogic.update(Integer.valueOf(dartNum), Integer.valueOf(val)));
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
                     });
                     sendDartHitTask.execute("http://10.0.2.2:8000/getdart", "12");
                     try {
-                        Thread.sleep(2000);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -61,7 +75,10 @@ public class MainActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.remaining_2_1)).setText(Integer.toString(data[5]));
         ((TextView)findViewById(R.id.points_2_2)).setText(Integer.toString(data[6]));
         ((TextView)findViewById(R.id.remaining_2_2)).setText(Integer.toString(data[7]));
-        ((TextView)findViewById(R.id.points_curr_1)).setText(Integer.toString(data[8]));
+        if(data[9] == -1)
+            ((TextView)findViewById(R.id.points_curr_2)).setText("");
+        else
+            ((TextView)findViewById(R.id.points_curr_1)).setText(Integer.toString(data[8]));
         if(data[9] == -1)
             ((TextView)findViewById(R.id.points_curr_2)).setText("");
         else
