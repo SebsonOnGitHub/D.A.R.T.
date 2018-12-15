@@ -13,10 +13,14 @@ import org.json.JSONObject;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private static Context context;
+    private static RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public static Context getContext(){
         return MainActivity.context;
+    }
+    public static RequestQueue getRequestQueue(){
+        if(MainActivity.requestQueue == null)
+            MainActivity.requestQueue = Volley.newRequestQueue(MainActivity.context);
+        return MainActivity.requestQueue;
     }
 
     public void updateTextView(int[] data){
