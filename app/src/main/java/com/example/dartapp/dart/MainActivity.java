@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity{
         MainActivity.context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -29,9 +30,9 @@ public class MainActivity extends AppCompatActivity{
                             toast.show();
                         }
                     });
-                    sendDartHitTask.execute("http://10.0.2.2:8080", "12");
+                    sendDartHitTask.execute("http://10.0.2.2:8000/getdart", "12");
                     try {
-                        Thread.sleep(5000);
+                        Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
