@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <EditText
         android:id="@+id/player_1"
         android:layout_width="wrap_content"
@@ -53,7 +54,6 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/border_dashed"
-        android:text="@string/points_1_1"
         android:textAlignment="center"
         android:textSize="@dimen/size_points"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,6 @@
         android:layout_width="@dimen/width_remaining"
         android:layout_height="@dimen/height_remaining"
         android:background="@drawable/border_dashed"
-        android:text="@string/remaining_1_1"
         android:textAlignment="center"
         android:textSize="@dimen/size_remaining"
         app:layout_constraintStart_toEndOf="@+id/points_1_1"
@@ -75,7 +74,6 @@
         android:layout_width="@dimen/width_points"
         android:layout_height="@dimen/height_points"
         android:background="@drawable/border_whole"
-        android:text="@string/points_1_2"
         android:textAlignment="center"
         android:textSize="@dimen/size_points"
         app:layout_constraintStart_toStartOf="@+id/points_1_1"
@@ -86,7 +84,6 @@
         android:layout_width="@dimen/width_remaining"
         android:layout_height="@dimen/height_remaining"
         android:background="@drawable/border_whole"
-        android:text="@string/remaining_1_2"
         android:textAlignment="center"
         android:textSize="@dimen/size_remaining"
         app:layout_constraintStart_toEndOf="@+id/points_1_2"
@@ -97,7 +94,6 @@
         android:layout_width="@dimen/width_points"
         android:layout_height="@dimen/height_points"
         android:background="@drawable/border_dashed"
-        android:text="@string/points_2_1"
         android:textAlignment="center"
         android:textSize="@dimen/size_points"
         app:layout_constraintEnd_toStartOf="@+id/remaining_2_1"
@@ -110,7 +106,6 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="120dp"
         android:background="@drawable/border_dashed"
-        android:text="@string/remaining_2_1"
         android:textAlignment="center"
         android:textSize="@dimen/size_remaining"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,7 +116,6 @@
         android:layout_width="@dimen/width_points"
         android:layout_height="@dimen/height_points"
         android:background="@drawable/border_whole"
-        android:text="@string/points_2_2"
         android:textAlignment="center"
         android:textSize="@dimen/size_points"
         app:layout_constraintEnd_toStartOf="@+id/remaining_2_2"
@@ -132,10 +126,87 @@
         android:layout_width="@dimen/width_remaining"
         android:layout_height="@dimen/height_remaining"
         android:background="@drawable/border_whole"
-        android:text="@string/remaining_2_2"
         android:textAlignment="center"
         android:textSize="@dimen/size_remaining"
         app:layout_constraintEnd_toEndOf="@+id/remaining_2_1"
         app:layout_constraintTop_toBottomOf="@+id/remaining_2_1" />
+
+    <TextView
+        android:id="@+id/points_curr_1"
+        android:layout_width="@dimen/width_points_bigger"
+        android:layout_height="@dimen/height_points_bigger"
+        android:layout_marginEnd="60dp"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_points_bigger"
+        app:layout_constraintBottom_toBottomOf="@+id/points_curr_2"
+        app:layout_constraintEnd_toStartOf="@+id/points_curr_2" />
+
+    <TextView
+        android:id="@+id/points_curr_2"
+        android:layout_width="@dimen/width_points_bigger"
+        android:layout_height="@dimen/height_points_bigger"
+        android:layout_marginTop="190dp"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_points_bigger"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu" />
+
+    <TextView
+        android:id="@+id/points_curr_3"
+        android:layout_width="@dimen/width_points_bigger"
+        android:layout_height="@dimen/height_points_bigger"
+        android:layout_marginStart="60dp"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_points_bigger"
+        app:layout_constraintBottom_toBottomOf="@+id/points_curr_2"
+        app:layout_constraintStart_toEndOf="@+id/points_curr_2" />
+
+    <TextView
+        android:id="@+id/remaining_curr"
+        android:layout_width="@dimen/width_remaining_big"
+        android:layout_height="@dimen/height_remaining_big"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_whole"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_remaining_big"
+        app:layout_constraintStart_toEndOf="@+id/points_curr_tot"
+        app:layout_constraintTop_toBottomOf="@+id/points_curr_2" />
+
+    <TextView
+        android:id="@+id/points_curr_tot"
+        android:layout_width="@dimen/width_points_big"
+        android:layout_height="@dimen/height_points_big"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/border_whole"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_points_big"
+        app:layout_constraintBottom_toBottomOf="@+id/remaining_curr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/round_1"
+        android:layout_width="@dimen/width_round"
+        android:layout_height="@dimen/height_round"
+        android:layout_marginTop="190dp"
+        android:background="@drawable/border_whole"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/points_curr_1" />
+
+    <TextView
+        android:id="@+id/round_2"
+        android:layout_width="@dimen/width_round"
+        android:layout_height="@dimen/height_round"
+        android:layout_marginTop="190dp"
+        android:background="@drawable/border_whole"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_round"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/points_curr_3" />
+
 
 </android.support.constraint.ConstraintLayout>
