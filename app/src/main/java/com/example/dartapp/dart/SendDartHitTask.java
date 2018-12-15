@@ -43,7 +43,7 @@ public class SendDartHitTask extends AsyncTask<String, Void, String> {
             e.printStackTrace();
         }
         RequestQueue mRequestQueue;
-        mRequestQueue = Volley.newRequestQueue(MainActivity.getContext());
+        mRequestQueue = MainActivity.getRequestQueue();
         JsonObjectRequest request = new JsonObjectRequest(GET, url, info, new Response.Listener<JSONObject>(){
 
             @Override
