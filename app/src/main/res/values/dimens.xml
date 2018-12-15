@@ -1,0 +1,27 @@
+<resources>
+    <dimen name="width_points">100sp</dimen>
+    <dimen name="height_points">70sp</dimen>
+    <dimen name="size_points">50sp</dimen>
+    <dimen name="width_remaining">150sp</dimen>
+    <dimen name="height_remaining">70sp</dimen>
+    <dimen name="size_remaining">50sp</dimen>
+
+    <dimen name="width_points_big">160sp</dimen>
+    <dimen name="height_points_big">112sp</dimen>
+    <dimen name="size_points_big">80sp</dimen>
+    <dimen name="width_remaining_big">240sp</dimen>
+    <dimen name="height_remaining_big">112sp</dimen>
+    <dimen name="size_remaining_big">80sp</dimen>
+
+    <dimen name="width_points_bigger">220sp</dimen>
+    <dimen name="height_points_bigger">154sp</dimen>
+    <dimen name="size_points_bigger">110sp</dimen>
+    <dimen name="width_remaining_bigger">330sp</dimen>
+    <dimen name="height_remaining_bigger">154sp</dimen>
+
+    <dimen name="width_round">150sp</dimen>
+    <dimen name="height_round">60sp</dimen>
+    <dimen name="size_round">40sp</dimen>
+
+
+</resources>

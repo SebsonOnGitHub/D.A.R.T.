@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">DART</string>
+    <string name="player1">Player one</string>
+    <string name="menu">Menu</string>
+    <string name="player2">Player two</string>
 </resources>
